@@ -1,9 +1,148 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Example</title>
-    </head>
-    <body>
-        <p>This is an example of a simple HTML page with one paragraph.</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>..:: Notebook ::..</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-cover {
+            height: 200px;
+            /*width: 200px;*/
+            object-fit: cover;
+            border-radius: 4px;
+            margin: 0 auto 10px auto;
+            display: block;
+        }
+
+        .book-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+
+        .book-author {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .book-genre {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Notebook Collection</h1>
+        <p>A curated list of my favorite books</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search books..." onkeyup="searchBooks()">
+    </div>
+
+    <div class="books-grid">
+        <div class="book-card">
+            <img src="https://s3.amazonaws.com/CAPS-SSE/kdp_print/9e63/YKHMJZ76GV2/KDP_PRINT_BOOK_CONVERTED_COVER_THUMBNAIL_100?versionId=z7UIiTmlu_X2Rgx_vQbIwc4W30c05Xg6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241109T200113Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIAWBV6LQ4QBAWEKAFP%2F20241109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=229bb63de01cf29ab4d085270a8dd6033491901e3eb593defc348b1e1141884a" alt="Book cover" class="book-cover">
+            <div class="book-title">Graph Paper Notebook - Multicolored Flowers</div>
+            <div class="book-author">Dr. Fernando Pujaico Rivera</div>
+            <div class="book-genre">Plants</div>
+        </div>
+
+        <div class="book-card">
+            <img src="https://s3.amazonaws.com/CAPS-SSE/kdp_print/6c7d/CKQP2Q1PWCM/KDP_PRINT_BOOK_CONVERTED_COVER_THUMBNAIL_100?versionId=OZcNEex7ZuJzGPT5sWhKjn8IZmTkgK4K&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241109T200113Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIAWBV6LQ4QBAWEKAFP%2F20241109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=fcf4410f157b94b7d21354a26b31ada88d335f07ae12b2ea94425114ae7b52d1" alt="Book cover" class="book-cover">
+            <div class="book-title">Graph Paper Notebook - Green Parrot</div>
+            <div class="book-author">Dr. Fernando Pujaico Rivera</div>
+            <div class="book-genre">Animals</div>
+        </div>
+
+        <div class="book-card">
+            <img src="https://m.media-amazon.com/images/I/61bLvUjeZWL._SL1376_.jpg" alt="Book cover" class="book-cover">
+            <div class="book-title">Music Notebook for Kids: 3 staves per page</div>
+            <div class="book-author">Dr. Fernando Pujaico Rivera</div>
+            <div class="book-genre">Music</div>
+        </div>
+
+        <div class="book-card">
+            <img src="https://m.media-amazon.com/images/I/61uyfD3MbHL._SL1376_.jpg" alt="Book cover" class="book-cover">
+            <div class="book-title">Music Notebook for Kids: 4 staves per page</div>
+            <div class="book-author">Dr. Fernando Pujaico Rivera</div>
+            <div class="book-genre">Music</div>
+        </div>
+    </div>
+
+    <script>
+        function searchBooks() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const cards = document.getElementsByClassName('book-card');
+
+            for (let card of cards) {
+                const title = card.querySelector('.book-title').textContent.toLowerCase();
+                const author = card.querySelector('.book-author').textContent.toLowerCase();
+                const genre = card.querySelector('.book-genre').textContent.toLowerCase();
+                
+                if (title.includes(filter) || author.includes(filter) || genre.includes(filter)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
 </html>
