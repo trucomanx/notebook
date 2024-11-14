@@ -55,9 +55,9 @@
         }
 
         .book-cover {
-            height: 200px;
-            /*width: 200px;*/
-            object-fit: cover;
+            max-height: 200px;
+            max-width: 200px;
+            object-fit: contain; /* Ajusta a imagem para caber completamente sem cortar */
             border-radius: 4px;
             margin: 0 auto 10px auto;
             display: block;
@@ -97,35 +97,39 @@
 
     <div class="books-grid">
         <div class="book-card">
-            <img src="https://s3.amazonaws.com/CAPS-SSE/kdp_print/9e63/YKHMJZ76GV2/KDP_PRINT_BOOK_CONVERTED_COVER_THUMBNAIL_100?versionId=z7UIiTmlu_X2Rgx_vQbIwc4W30c05Xg6&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241109T200113Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIAWBV6LQ4QBAWEKAFP%2F20241109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=229bb63de01cf29ab4d085270a8dd6033491901e3eb593defc348b1e1141884a" alt="Book cover" class="book-cover">
+            <a href="https://www.amazon.com/dp/B0DMZSV1RJ" target="_blank">
+            <img src="https://m.media-amazon.com/images/I/71RqafWhgyL._SL1293_.jpg" alt="Book cover" class="book-cover">
             <div class="book-title">Graph Paper Notebook - Multicolored Flowers</div>
             <div class="book-author">Dr. Fernando Pujaico Rivera</div>
             <div class="book-genre">Plants</div>
+            </a>
         </div>
 
         <div class="book-card">
-            <img src="https://s3.amazonaws.com/CAPS-SSE/kdp_print/6c7d/CKQP2Q1PWCM/KDP_PRINT_BOOK_CONVERTED_COVER_THUMBNAIL_100?versionId=OZcNEex7ZuJzGPT5sWhKjn8IZmTkgK4K&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241109T200113Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIAWBV6LQ4QBAWEKAFP%2F20241109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=fcf4410f157b94b7d21354a26b31ada88d335f07ae12b2ea94425114ae7b52d1" alt="Book cover" class="book-cover">
+            <a href="https://www.amazon.com/dp/B0DMZ9H3M6" target="_blank">
+            <img src="https://m.media-amazon.com/images/I/61hEGYLpmqL._SL1293_.jpg" alt="Book cover" class="book-cover">
             <div class="book-title">Graph Paper Notebook - Green Parrot</div>
             <div class="book-author">Dr. Fernando Pujaico Rivera</div>
             <div class="book-genre">Animals</div>
+            </a>
         </div>
 
         <div class="book-card">
             <a href="https://www.amazon.com/dp/B0DLWFHMMM" target="_blank">
             <img src="https://m.media-amazon.com/images/I/61bLvUjeZWL._SL1376_.jpg" alt="Book cover" class="book-cover">
-            </a>
             <div class="book-title">Music Notebook for Kids: 3 staves per page</div>
             <div class="book-author">Dr. Fernando Pujaico Rivera</div>
             <div class="book-genre">Music</div>
+            </a>
         </div>
 
         <div class="book-card">
             <a href="https://www.amazon.com/dp/B0DLWQMN5M" target="_blank">
             <img src="https://m.media-amazon.com/images/I/61uyfD3MbHL._SL1376_.jpg" alt="Book cover" class="book-cover">
-            </a>
             <div class="book-title">Music Notebook for Kids: 4 staves per page</div>
             <div class="book-author">Dr. Fernando Pujaico Rivera</div>
             <div class="book-genre">Music</div>
+            </a>
         </div>
     </div>
 
